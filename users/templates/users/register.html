@@ -1,0 +1,13 @@
+{% if form.errors %}
+
+<p>Seu login e senha estão incorretos. Por favor, tente novamente!</p>
+
+{% endif %}
+
+<form action = "{% url 'users:register' %}" method = "POST">
+    {% csrf_token %}
+    {{form.as_p}}
+
+    <button name="submit">Enviar</button>
+    <input type="hidden" name="next" value="{% url 'principal:index' %}">
+</form>

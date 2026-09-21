@@ -1,0 +1,82 @@
+{% extends "principal/base.html" %}
+
+{% block content %}
+
+<a href="{% url 'principal:professor_materia' matricula.materia_curso.materia.id %}" class="logo">
+<h1>{{ matricula.materia_curso.materia.nome }}</h1>
+</a>
+
+<div class="card">
+
+    <div class="card-header">
+        Avaliações
+    </div>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Avaliação</th>
+                <th>Nota</th>
+                <th>Valor Máximo</th>
+                <th>Edição de notas</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% for linha in linhas %}
+
+            <tr>
+
+                <td>{{ linha.prova.nome }}</td>
+
+                <td>{% if linha.nota %}{{ linha.nota.nota }}{% else %}—{% endif %}</td>
+
+                <td>{{ linha.prova.valor_maximo }}</td>
+
+                <td>
+                    <form method="post" action="{% url 'principal:lancar_nota' matricula.id linha.prova.id %}">
+                        {% csrf_token %}
+                        <input
+                        class="nota-input"
+                        type="number"
+                        name="nota"
+                        step="0.01"
+                        min="0"
+                        max="{{ linha.prova.valor_maximo }}"
+                        value="{% if linha.nota %}{{ linha.nota.nota }}{% endif %}"
+                        required
+                        >
+
+                        <button class="nota-btn" type="submit">
+                            {% if linha.nota %}Editar{% else %}Adicionar{% endif %}
+                        </button>
+                    </form>
+                </td>
+
+            </tr>
+
+        {% empty %}
+
+            <tr>
+
+                <td colspan="4">
+                    Nenhuma avaliação cadastrada.
+                </td>
+
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+    
+</div>
+
+{% endblock content %}

@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}DION{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'principal/style.css' %}">
+</head>
+
+<body>
+
+<header class="topbar">
+
+    {% if user.is_authenticated %}
+
+        {% if user.aluno %}
+        <a href="{% url 'principal:aluno_index' %}" class="logo">
+            DION
+        </a>
+
+        {% else %}
+
+        <a href="{% url 'principal:professor_index' %}" class="logo">
+            DION
+        </a>
+
+        {% endif %}
+
+        <a href="{% url 'users:logout' %}" class="logout">
+            Sair
+        </a>
+
+    {% endif %}
+
+</header>
+
+
+<main class="container">
+
+    {% block content %}
+    {% endblock content %}
+
+</main>
+
+
+<script src="{% static 'principal/script.js' %}"></script>
+
+</body>
+</html>

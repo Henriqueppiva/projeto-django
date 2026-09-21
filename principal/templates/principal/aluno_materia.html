@@ -1,0 +1,116 @@
+{% extends "principal/base.html" %}
+
+{% block content %}
+
+<a href="{% url 'principal:aluno_index' %}" class="logo">
+<h1>{{ matricula.materia_curso.materia.nome }}</h1>
+</a>
+
+<div class="card">
+
+    <div class="card-header">
+        Avaliações
+    
+    </div>
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Avaliação</th>
+                <th>Nota</th>
+                <th>Valor Máximo</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% for nota in matricula.notas.all %}
+
+            <tr>
+
+                <td>{{ nota.prova.nome }}</td>
+                
+                <td>{{ nota.nota }}</td>
+
+                <td>{{ nota.prova.valor_maximo }}</td>
+
+            </tr>
+
+        {% empty %}
+
+            <tr>
+
+                <td colspan="4">
+                    Nenhuma avaliação cadastrada.
+                </td>
+
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+    
+</div>
+
+<div class="card">
+
+    <div class="card-header">
+
+        Média:
+
+    </div>
+
+    <div class="card-content">
+        {{matricula.media }}
+    </div>
+
+</div>
+
+<div class="card">
+
+    <div class="card-header">
+        Fórmula da Média
+    </div>
+
+    <div class="card-content">
+        {{ matricula.materia_curso.formula_media }}
+    </div>
+
+</div>
+
+<div class="card">
+
+    <div class="card-header">
+
+        Professor
+
+    </div>
+
+    <div class="card-content">
+    {{ matricula.materia_curso.professor.nome }}
+    </div>
+
+</div>
+
+<div class="card">
+
+    <div class="card-header">
+
+        Curso
+
+    </div>
+
+    <div class="card-content">
+    {{ matricula.materia_curso.curso.nome }}
+    </div>
+
+</div>
+
+{% endblock content %}

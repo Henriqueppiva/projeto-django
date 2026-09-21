@@ -1,0 +1,27 @@
+{% extends "principal/base.html" %}
+
+{% block content %}
+
+<div class="login-card">
+
+    <h1>Login</h1>
+
+    {% if form.errors %}
+        <p class="erro">
+            Seu login e senha estão incorretos. Por favor, tente novamente!
+        </p>
+    {% endif %}
+
+    <form class="auth-form" action="{% url 'users:login' %}" method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit" name="submit">Entrar</button>
+
+        <input type="hidden" name="next" value="{% url 'principal:verificacao' %}">
+    </form>
+
+</div>
+
+{% endblock content %}

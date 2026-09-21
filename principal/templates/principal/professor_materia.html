@@ -1,0 +1,31 @@
+{% extends "principal/base.html" %}
+
+{% block content %}
+<a href="{% url 'principal:professor_index' %}" class="logo">
+        <h1>{{ materia.materia.nome }}</h1>
+        </a>
+
+
+<h2>Alunos</h2>
+
+{% for matricula in matriculas %}
+
+<div class="card card-aluno">
+
+    <div class="card-content">
+        <strong>{{ matricula.aluno_curso.aluno.nome }}</strong>
+    </div>
+
+    <a class="btn-notas" href="{% url 'principal:professor_notas' matricula.id %}">
+        Ver notas
+    </a>
+
+</div>
+
+{% empty %}
+
+<p>Nenhum aluno matriculado.</p>
+
+{% endfor %}
+
+{% endblock %}

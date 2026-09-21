@@ -1,0 +1,350 @@
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#f4f6f9;
+    color:#333;
+}
+
+
+.topbar{
+    height:60px;
+    background:#2563eb;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 30px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.15);
+}
+
+
+.logo{
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+
+.logout{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+
+.container{
+    width:90%;
+    margin:30px auto;
+}
+
+
+h1{
+    margin-bottom:25px;
+    font-size:28px;
+    color:#222;
+    border-bottom:2px solid #2563eb;
+    padding-bottom:10px;
+}
+
+
+
+.card{
+
+    background:white;
+    border-radius:12px;
+    margin-bottom:20px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);
+
+}
+
+
+.card-header{
+
+    background:#2563eb;
+    color:white;
+    padding:15px;
+    font-weight:bold;
+    font-size:18px;
+
+}
+
+
+.card-content{
+    padding:20px;
+}
+
+.card-aluno{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding-right:20px;
+}
+
+.card-aluno .card-content{
+    flex:1;
+}
+
+.card-aluno .btn-notas{
+    margin-left:20px;
+}
+
+table{
+
+    width:100%;
+    border-collapse:collapse;
+
+}
+
+
+th,
+td{
+
+    padding:12px;
+    border-bottom:1px solid #ddd;
+    text-align:center;
+
+}
+
+
+th{
+
+    background:#f1f5f9;
+
+}
+
+
+tr:hover{
+
+    background:#f8fafc;
+
+}
+
+
+
+.media{
+
+    padding:20px;
+    font-size:20px;
+    font-weight:bold;
+    text-align:right;
+
+}
+
+
+.sidebar{
+    width:280px;
+    height:100vh;
+    background:#e8eef7;
+    color:#333;
+}
+
+
+.menu-title{
+    padding:16px 20px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    border-bottom:1px solid #d1d9e6;
+    background:#dbe7f7;
+    text-align:left;
+    font-weight:bold;
+    color:#1e3a5f;
+    transition:0.3s;
+}
+
+
+.menu-title:hover{
+    background:#c7dcf5;
+    padding-left:30px;
+}
+
+
+.submenu{
+
+    display:none;
+    background:#f8fafc;
+
+}
+
+
+.submenu a{
+
+    display:block;
+    color:#334155;
+    padding:12px 25px;
+    text-decoration:none;
+    font-size:15px;
+    border-left:3px solid transparent;
+    transition:0.3s;
+
+}
+
+
+.submenu a:hover{
+
+    background:#dbeafe;
+    color:#2563eb;
+    border-left:3px solid #2563eb;
+    padding-left:35px;
+
+}
+
+.login-card{
+
+    background:white;
+    width:350px;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.12);
+
+    margin:80px auto;
+
+}
+
+
+.login-card h1{
+
+    margin-bottom:25px;
+    color:#1e293b;
+    font-size:28px;
+    border-bottom:2px solid #2563eb;
+    padding-bottom:10px;
+
+}
+
+
+.auth-form p{
+
+    margin-bottom:18px;
+
+}
+
+
+.auth-form label{
+
+    display:block;
+    color:#334155;
+    font-weight:bold;
+    margin-bottom:6px;
+
+}
+
+
+.auth-form input{
+
+    width:100%;
+    padding:10px;
+    border:1px solid #cbd5e1;
+    border-radius:6px;
+    box-sizing:border-box;
+    font-size:15px;
+
+}
+
+
+.auth-form input:focus{
+
+    outline:none;
+    border-color:#2563eb;
+
+}
+
+
+.auth-form button{
+
+    width:100%;
+    padding:12px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:6px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+
+}
+
+
+.auth-form button:hover{
+
+    background:#1d4ed8;
+
+}
+
+
+.erro{
+
+    background:#fee2e2;
+    color:#b91c1c;
+    padding:10px;
+    border-radius:6px;
+    margin-bottom:20px;
+
+}
+
+.btn-notas{
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    padding:10px 18px;
+    border-radius:6px;
+    font-weight:bold;
+    margin-right:20px;
+    transition:0.3s;
+}
+
+.btn-notas:hover{
+    background:#1d4ed8;
+}
+
+.nota-input{
+
+    width:90px;
+    padding:8px 10px;
+    border:1px solid #cbd5e1;
+    border-radius:6px;
+    font-size:15px;
+    text-align:center;
+    color:#333;
+    transition:0.3s;
+    outline:none;
+
+}
+
+
+.nota-input:focus{
+
+    border-color:#2563eb;
+    box-shadow:0 0 5px rgba(37,99,235,0.3);
+
+}
+
+
+.nota-input:hover{
+
+    border-color:#2563eb;
+
+}
+
+
+.nota-btn{
+
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:8px 15px;
+    border-radius:6px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-left:10px;
+    transition:0.3s;
+
+}
+
+
+.nota-btn:hover{
+
+    background:#1d4ed8;
+
+}

@@ -1,0 +1,53 @@
+{% extends "principal/base.html" %}
+
+{% block title %}DION - Início{% endblock title %}
+
+{% block content %}
+
+<h1 class="menu-title">
+    Meus cursos
+</h1>
+
+<div class="submenu">
+
+    {% for curso in cursos %}
+
+        <div class="menu-item">
+
+            <div class="menu-title">
+                {{ curso.nome }}
+            </div>
+
+            <div class="submenu">
+
+                {% for materia in curso.materias_curso.all %}
+
+                {% if materia.professor == request.user.professor %}
+
+                    <a href="{% url 'principal:professor_materia' materia.id %}">
+                    {{ materia.materia.nome }}
+                     </a>
+
+                {% endif %}
+
+                {% empty %}
+
+                    <p>Nenhuma matéria matriculada.</p>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    {% empty %}
+
+        <p>
+            Você ainda não está matriculado em nenhum curso.
+        </p>
+
+    {% endfor %}
+
+</div>
+
+{% endblock content %}
